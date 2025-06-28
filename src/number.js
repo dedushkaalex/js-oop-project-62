@@ -16,7 +16,7 @@ export class NumberSchema extends BaseSchema {
 
   positive() {
     this.addValidator('positive', (value) => {
-      return value >= 0;
+      return value > 0;
     })
 
     return this;

@@ -1,4 +1,4 @@
-import BaseSchema from './schema';
+import BaseSchema from './schema.js';
 
 export class ArraySchema extends BaseSchema {
   _checkType(value) {

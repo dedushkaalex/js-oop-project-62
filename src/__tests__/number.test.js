@@ -24,6 +24,7 @@ describe('Validator number()', () => {
   test('should positive correctly', () => {
     expect(schema.positive().isValid(10)).toBe(true);
     expect(schema.positive().isValid(-12)).toBe(false);
+    expect(schema.positive().isValid(0)).toBe(false);
   })
 
   test('should range correctly', () => {

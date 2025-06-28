@@ -1,5 +1,16 @@
-import { number } from 'yup';
+import Validator from './Validator.js';
 
-const schema = number();
+const v = new Validator();
 
-console.log(schema.isValidSync(Number.POSITIVE_INFINITY));
+const schema = v.object();
+
+// Позволяет описывать валидацию для свойств объекта
+schema.shape({
+  name: v.string().required(),
+  age: v.number().positive(),
+});
+
+console.log(schema.isValid({ name: 'kolya', age: 100 })); // true
+console.log(schema.isValid({ name: 'maya', age: null })); // true
+console.log(schema.isValid({ name: '', age: null })); // false
+console.log(schema.isValid({ name: 'ada', age: -5 })); // false
