@@ -51,7 +51,7 @@ describe('ObjectSchema', () => {
       name: v.string(),
     });
 
-    expect(userSchema.isValid(null)).toBe(false);
+    expect(userSchema.isValid(null)).toBe(true);
     expect(userSchema.isValid([])).toBe(false);
     expect(userSchema.isValid('string')).toBe(false);
     expect(userSchema.isValid(123)).toBe(false);

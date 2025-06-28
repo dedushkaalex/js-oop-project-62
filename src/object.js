@@ -7,7 +7,7 @@ export class ObjectSchema extends BaseSchema {
   }
 
   _checkType(value) {
-    return typeof value === 'object' && !Array.isArray(value) && value !== null;
+    return typeof value === 'object' && !Array.isArray(value);
   }
 
   shape(objSchema) {
@@ -16,16 +16,16 @@ export class ObjectSchema extends BaseSchema {
   }
 
   isValid(value) {
-
+    if (value === null) {
+      return true;
+    }
     if (!this._checkType(value)) {
       return false;
     }
 
-
     if (this._shape) {
       for (const key in this._shape) {
         const fieldSchema = this._shape[key];
-
         if (!fieldSchema.isValid(value[key])) {
           return false;
         }
