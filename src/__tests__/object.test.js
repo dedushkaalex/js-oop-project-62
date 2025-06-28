@@ -1,15 +1,19 @@
 import Validator from '../validator.js';
 
 describe('ObjectSchema', () => {
+
   let schema;
   let v;
 
   beforeEach(() => {
+
     v = new Validator();
     schema = v.object();
-  });
+  
+});
 
   test('valid object with correct shape', () => {
+
     const userSchema = schema.shape({
       name: v.string().required(),
       age: v.number().positive(),
@@ -29,9 +33,11 @@ describe('ObjectSchema', () => {
       name: '',
       age: 25,
     })).toBe(false);
-  });
+  
+});
 
   test('validates missing fields in object', () => {
+
     const userSchema = schema.shape({
       name: v.string().required(),
       age: v.number(),
@@ -44,9 +50,11 @@ describe('ObjectSchema', () => {
     expect(userSchema.isValid({
       age: 20,
     })).toBe(false);
-  });
+  
+});
 
   test('invalid type - not an object', () => {
+
     const userSchema = schema.shape({
       name: v.string(),
     });
@@ -55,5 +63,7 @@ describe('ObjectSchema', () => {
     expect(userSchema.isValid([])).toBe(false);
     expect(userSchema.isValid('string')).toBe(false);
     expect(userSchema.isValid(123)).toBe(false);
-  });
+  
+});
+
 });
