@@ -4,8 +4,7 @@
   "description": "[![Actions Status](https://github.com/dedushkaalex/js-oop-project-62/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/dedushkaalex/js-oop-project-62/actions)",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:watch": "vitest"
+    "test": "npx jest"
   },
   "type": "module",
   "repository": {
