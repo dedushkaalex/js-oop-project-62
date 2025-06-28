@@ -1,4 +1,4 @@
-import Validator from '../Validator.js';
+import Validator from '../validator.js';
 
 describe('Validator custom validators', () => {
   let v;
