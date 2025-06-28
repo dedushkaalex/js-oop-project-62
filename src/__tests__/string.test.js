@@ -58,4 +58,8 @@ describe('Validator string()', () => {
     expect(schema.isValid({})).toBe(false);
     expect(schema.isValid(() => { })).toBe(false);
   })
+
+  test('string as new String corretcly', () => {
+    expect(schema.isValid(new String(''))).toBe(true)
+  })
 });

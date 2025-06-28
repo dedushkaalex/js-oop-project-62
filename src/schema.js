@@ -3,12 +3,12 @@ class BaseSchema {
   _isRequired = false;
 
   isValid(value) {
-    if (!this._isRequired && (value === null || value === undefined || value === '')) {
+    if (!this._isRequired && (value === null || value === undefined)) {
       return true;
     }
 
 
-    if (this._isRequired && (value === null || value === undefined || value === '')) {
+    if (this._isRequired && (value === null || value === undefined)) {
       return false;
     }
 
