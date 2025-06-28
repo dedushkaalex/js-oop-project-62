@@ -2,6 +2,10 @@ class BaseSchema {
   _validators = [];
   _isRequired = false;
 
+  constructor(customValidators = {}) {
+    this._customValidators = customValidators;
+  }
+
   isValid(value) {
     if (!this._isRequired && (value === null || value === undefined)) {
       return true;
@@ -37,6 +41,16 @@ class BaseSchema {
   // eslint-disable-next-line no-unused-vars
   _checkType(_value) {
     return true;
+  }
+
+  test(name, ...args) {
+    const fn = this._customValidators[name];
+    if (!fn) {
+      throw new Error(`Validator "${name}" not found`);
+    }
+
+    this.addValidator(name, (value) => fn(value, ...args));
+    return this;
   }
 
 }
