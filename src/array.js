@@ -8,7 +8,7 @@ export class ArraySchema extends BaseSchema {
   sizeof(value) {
     this.addValidator('sizeof', (array) => {
       return array.length === value;
-    })
+    });
 
     return this;
   }

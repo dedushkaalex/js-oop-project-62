@@ -48,7 +48,7 @@ describe('Validator string()', () => {
     expect(schema.required().isValid([])).toBe(false);
     expect(schema.required().isValid({})).toBe(false);
     expect(schema.required().isValid(() => { })).toBe(false);
-  })
+  });
 
   test('should allow empty values and reject non-string types when not required', () => {
     expect(schema.isValid('')).toBe(true);
@@ -57,9 +57,9 @@ describe('Validator string()', () => {
 
     expect(schema.isValid({})).toBe(false);
     expect(schema.isValid(() => { })).toBe(false);
-  })
+  });
 
   test('string as new String corretcly', () => {
-    expect(schema.isValid(new String(''))).toBe(true)
-  })
+    expect(schema.isValid(new String(''))).toBe(true);
+  });
 });

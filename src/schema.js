@@ -32,13 +32,13 @@ class BaseSchema {
     const indexRule = this._validators.findIndex(check => check.name === name);
 
     if (indexRule !== -1) {
-      this._validators[indexRule] = { name, fn }
+      this._validators[indexRule] = { name, fn };
     } else {
       this._validators.push({ name, fn });
     }
   }
 
-  // eslint-disable-next-line no-unused-vars
+   
   _checkType(_value) {
     return true;
   }

@@ -18,21 +18,21 @@ export class StringSchema extends BaseSchema {
       return true;
     }
 
-    return super.isValid(value)
+    return super.isValid(value);
   }
 
   minLength(length) {
     this.addValidator('minLength', (targetStr) => {
-      return targetStr.length >= length
-    })
+      return targetStr.length >= length;
+    });
 
     return this;
   }
 
   contains(str) {
     this.addValidator('contains', (targetStr) => {
-      return targetStr.toLowerCase().includes(str.toLowerCase())
-    })
+      return targetStr.toLowerCase().includes(str.toLowerCase());
+    });
 
 
     return this;

@@ -8,16 +8,16 @@ export class NumberSchema extends BaseSchema {
 
   isValid(value) {
     if (value instanceof Number) {
-      return this._checkType(value.valueOf())
+      return this._checkType(value.valueOf());
     }
 
-    return super.isValid(value)
+    return super.isValid(value);
   }
 
   positive() {
     this.addValidator('positive', (value) => {
       return value > 0;
-    })
+    });
 
     return this;
   }
@@ -25,7 +25,7 @@ export class NumberSchema extends BaseSchema {
   range(start, end) {
     this.addValidator('range', (targetValue) => {
       return targetValue >= start && targetValue <= end;
-    })
+    });
 
     return this;
   }
